@@ -1,4 +1,4 @@
-// This version has printSideways as an extra public method for use in lecture.
+//This version has printSideways as an extra public method for use in lecture.
 
 // The QuestionTree class can be used to play a "twenty questions" game with
 // the user in which the computer attempts to guess an object the user is
@@ -39,6 +39,9 @@ public class QuestionTree {
     //       class comment for file format
     // post: reads a valid tree and returns a reference to it
     private QuestionNode readHelper(Scanner input) {
+        if(!input.hasNextLine()) {
+            return null;
+        }
         String kind = input.nextLine();
         if(kind.equals("A:")){
             return new QuestionNode(kind);
@@ -70,6 +73,9 @@ public class QuestionTree {
     // post: writes the given question tree to output in standard format (see
     //       class comment for format information)
     private void write(PrintStream output, QuestionNode root) {
+        if(root == null){
+            return;
+        }
         if (root.isLeaf()) {
             output.println("A:");
             output.println(root.getText());  
@@ -108,7 +114,12 @@ public class QuestionTree {
     private QuestionNode processLeaf(QuestionNode root) {
         if (yesTo("Would your object happen to be " + root.text + "?")) {
             System.out.println("Great, I got it right!");
-        } else {
+        }
+        if (!root.isLeaf()) { 
+              return root; 
+        }
+        else {
+            
             System.out.print("What is the name of your object? ");
             String name = console.nextLine();
             System.out.println("Please give me a yes/no question that");
@@ -157,4 +168,4 @@ public class QuestionTree {
             printSideways(root.left, level + 1);
         }
     }
-}
+} 
