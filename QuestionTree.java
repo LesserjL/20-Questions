@@ -39,9 +39,6 @@ public class QuestionTree {
     //       class comment for file format
     // post: reads a valid tree and returns a reference to it
     private QuestionNode readHelper(Scanner input) {
-        if(!input.hasNextLine()) {
-            return null;
-        }
         String kind = input.nextLine();
         if(kind.equals("A:")){
             return new QuestionNode(input.nextLine());
@@ -75,7 +72,7 @@ public class QuestionTree {
     private void write(PrintStream output, QuestionNode root) {
         if (root.isLeaf()) {
             output.println("A:");
-            output.println(root.getText());  
+            output.println(root.text);  
         } else {
             output.println("Q:");
             output.println(root.text);
@@ -113,7 +110,6 @@ public class QuestionTree {
             System.out.println("Great, I got it right!");
         }
         else {
-            
             System.out.print("What is the name of your object? ");
             String name = console.nextLine();
             System.out.println("Please give me a yes/no question that");
