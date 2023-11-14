@@ -79,8 +79,8 @@ public class QuestionTree {
         } else {
             output.println("Q:");
             output.println(root.text);
-            write(output,root.getLeft());   
-            write(output, root.getRight());  
+            write(output,root.left);   
+            write(output, root.right);  
         }
     }
 
