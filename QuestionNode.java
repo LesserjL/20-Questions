@@ -9,9 +9,7 @@ public class QuestionNode {
     
     /**Create a Constructure with a single parameter for the data that sets the left and right nodes to null**/
     public QuestionNode(String text){
-        this.text = text;
-        left = null;
-        right = null;
+        this(d,null,null);
     }
     
     /**Create another constructor that takes data (text) and left/right references**/
@@ -26,13 +24,7 @@ public class QuestionNode {
     }
     /** post: returns whether or not a node is a leaf node**/
     public boolean isLeaf() {
-        if(left == null && right == null){
-            return true;
-        }
-        if(left == null){
-            return true;
-        }
-        return false; /**Update this method to test whether or not this node is a left node**/
+        return left == null && right == null; /**Update this method to test whether or not this node is a left node**/
     }
     public QuestionNode getLeft()
     {
