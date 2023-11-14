@@ -73,9 +73,6 @@ public class QuestionTree {
     // post: writes the given question tree to output in standard format (see
     //       class comment for format information)
     private void write(PrintStream output, QuestionNode root) {
-        if(root == null){
-            return;
-        }
         if (root.isLeaf()) {
             output.println("A:");
             output.println(root.getText());  
