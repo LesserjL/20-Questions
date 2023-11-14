@@ -44,9 +44,9 @@ public class QuestionTree {
         }
         String kind = input.nextLine();
         if(kind.equals("A:")){
-            return new QuestionNode(kind);
+            return new QuestionNode(input.nextLine());
         } else{
-            return new QuestionNode(kind, readHelper(input), readHelper(input));
+            return new QuestionNode(input.nextLine(), readHelper(input), readHelper(input));
         }
         /**Write a conditional statement that checks to see if the input is an answer or a question. 
          * 
@@ -114,9 +114,6 @@ public class QuestionTree {
     private QuestionNode processLeaf(QuestionNode root) {
         if (yesTo("Would your object happen to be " + root.text + "?")) {
             System.out.println("Great, I got it right!");
-        }
-        if (!root.isLeaf()) { 
-              return root; 
         }
         else {
             
